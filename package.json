@@ -14,6 +14,16 @@
     "bcryptjs": "^3.0.3",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
+    "mongoos": "^0.0.1-security",
     "mongoose": "^9.2.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MKFaroouq/Micro-Electronics.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/MKFaroouq/Micro-Electronics/issues"
+  },
+  "homepage": "https://github.com/MKFaroouq/Micro-Electronics#readme"
 }
