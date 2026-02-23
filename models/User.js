@@ -35,34 +35,67 @@
 
 ///
 
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 
-// 1. Create Schema
-const userSchema = new mongoose.Schema({
-    name: {
+// // 1. Create Schema
+// const userSchema = new mongoose.Schema({
+//     name: {
+//         type: String,
+//         required: true,
+//         trim: true,
+//     },
+//     email: { 
+//         type: String,
+//         required: true,
+//         unique: true
+//     },
+//     password: {
+//         type: String,
+//         required: true,
+//         minlength: 6,
+//     },
+//     role: {
+//         type: String,
+//         enum: ["user", "admin"],
+//         default: "user",
+//     },
+// }, { timestamps: true });
+
+// // 2. Create Model
+// const User = mongoose.model("User", userSchema);
+
+// // 3. Export Model
+// module.exports = User;
+
+const mongoose = require('mongoose')
+
+const UserSchema = new mongoose.Schema({
+    name:{
         type: String,
-        required: true,
-        trim: true,
+        required: true
     },
-    email: { 
+    email: {
         type: String,
         required: true,
         unique: true
     },
     password: {
         type: String,
-        required: true,
-        minlength: 6,
+        required: true
     },
     role: {
         type: String,
-        enum: ["user", "admin"],
-        default: "user",
+        enum: ['admin', 'user'],
+        default: 'user'
     },
-}, { timestamps: true });
 
-// 2. Create Model
-const User = mongoose.model("User", userSchema);
+    cart: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Cart'
+    }
+   
+} , {timestamps:true})
 
-// 3. Export Model
-module.exports = User;
+const user = mongoose.model('User', UserSchema)
+
+module.exports = user
