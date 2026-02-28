@@ -267,7 +267,7 @@ const app = express()
 const port = process.env.PORT || 3000
 const User = require('./models/User')
 const mongoose =require('mongoose')
-const Product = require('./models/Product');
+const Product = require('./models/Products');
 const Cart = require('./models/cart')
 app.use(express.json())
 
@@ -287,7 +287,7 @@ app.use("/auth",authController)
 
 
 
-app.post("/products",async(req,res)=>{
+app.post("/Products",async(req,res)=>{
     try{
 const {title,price,stoke}=req.body
 if(!title || !price || !stoke) return res.status(401).json({
@@ -316,7 +316,7 @@ msg:"server error"
     }
 })
 
-app.get("/products" , async(req , res)=>{
+app.get("/Products" , async(req , res)=>{
     try{
         
         res.status(401).json({
@@ -333,7 +333,7 @@ app.get("/products" , async(req , res)=>{
     }
 })
 
-app.get("/products" , async(req , res)=>{
+app.get("/Products" , async(req , res)=>{
     try{
         const product =await Product.find(req.query)
         res.status(401).json({

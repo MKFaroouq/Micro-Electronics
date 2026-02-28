@@ -1,7 +1,8 @@
 const user = require("../models/User");
-
+const express = require('express')
+const app = express()
 // register 
-const regestire = app.post("/register",async(req,res)=>{
+const register = app.post("/register",async(req,res)=>{
 
     try{
    const {name,email,password,role}=req.body;
@@ -76,6 +77,6 @@ const user = await User.findOne({email});
 })
 
 module.exports = {
-    regestire,
+    register,
     login
 }
